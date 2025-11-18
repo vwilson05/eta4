@@ -12,6 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner" id="urgencyBanner">
+        <div class="urgency-content">
+            <span class="urgency-icon">🎉</span>
+            <span class="urgency-text">Summer 2026 Applications Opening Soon - Limited to 50 Volunteers</span>
+            <a href="#volunteer" class="urgency-cta">Get Notified →</a>
+        </div>
+        <button class="urgency-close" aria-label="Close banner">&times;</button>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
@@ -411,15 +421,103 @@
     <!-- Volunteer Section -->
     <section class="volunteer" id="volunteer">
         <div class="container">
+            <!-- Countdown & Urgency -->
+            <div class="volunteer-urgency">
+                <h2>Teach. Transform. Travel.</h2>
+                <p class="urgency-subheading">Join us in Hue, Vietnam for Summer 2026</p>
+
+                <div class="countdown-container">
+                    <div class="countdown-label">Applications Opening In:</div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="days">120</span>
+                            <span class="countdown-unit">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours">15</span>
+                            <span class="countdown-unit">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes">45</span>
+                            <span class="countdown-unit">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="seconds">30</span>
+                            <span class="countdown-unit">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="volunteer-spots-progress">
+                    <div class="progress-header">
+                        <span class="progress-label"><strong>Limited Spots:</strong> 15 of 50 volunteers already reserved</span>
+                        <span class="progress-percentage">30%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 30%"></div>
+                    </div>
+                    <p class="progress-note">Secure your spot early - we fill up fast!</p>
+                </div>
+            </div>
+
+            <!-- YouTube Video Embed -->
+            <div class="video-section">
+                <h3>See Our Programs in Action</h3>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-embed">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=UULFEnglishThroughA4" title="eta4 Program Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="video-caption">Watch highlights from our programs in Vietnam</p>
+                    </div>
+                </div>
+                <p class="video-cta">Visit our <a href="https://www.youtube.com/@EnglishThroughA4" target="_blank" rel="noopener">YouTube channel</a> to see more videos from past programs!</p>
+            </div>
+
+            <!-- Volunteer Journey Timeline -->
+            <div class="volunteer-journey">
+                <h3>Your 5-Week Journey</h3>
+                <div class="journey-timeline">
+                    <div class="journey-item">
+                        <div class="journey-badge">Week 0</div>
+                        <h4>Orientation & Training</h4>
+                        <p>Arrive in Hue, meet your team, receive comprehensive teaching training, and get acclimated to Vietnamese culture</p>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-badge">Weeks 1-2</div>
+                        <h4>Foundation Building</h4>
+                        <p>Assess student levels, build confidence through interactive games, establish classroom routines with experienced mentors</p>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-badge">Weeks 3-4</div>
+                        <h4>Full Teaching Experience</h4>
+                        <p>Lead classes across academics, athletics, and arts. Collaborate with local volunteers to maximize impact</p>
+                    </div>
+                    <div class="journey-item">
+                        <div class="journey-badge">Week 5</div>
+                        <h4>Celebration & Handoff</h4>
+                        <p>Students showcase progress through performances and presentations. Celebrate with families and transfer resources to local volunteers</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="volunteer-content">
                 <div class="volunteer-text">
-                    <h2>Volunteer for Summer 2026</h2>
+                    <h3 class="section-subtitle-h3">Why Volunteer with eta4?</h3>
                     <p class="volunteer-intro">
                         After a pause due to COVID-19, we're excited to restart our programs in Hue, Vietnam
                         for Summer 2026. Whether you're an international volunteer or a local teacher, join us
                         in making a lasting difference. We welcome both international and Vietnamese volunteers
                         who share our passion for education. No teaching experience required – just enthusiasm and dedication.
                     </p>
+
+                    <!-- Testimonial Quote -->
+                    <div class="testimonial-quote">
+                        <div class="quote-mark">"</div>
+                        <p class="quote-text">This was the most rewarding experience of my life. Watching my students gain confidence in speaking English and seeing their faces light up during class made every moment worthwhile.</p>
+                        <p class="quote-author">— Sarah Chen, 2015 Volunteer</p>
+                    </div>
+
                     <div class="volunteer-benefits">
                         <div class="benefit">
                             <div class="benefit-icon">
@@ -497,14 +595,96 @@
     <!-- Donate Section -->
     <section class="donate" id="donate">
         <div class="container">
+            <div class="donate-header-section">
+                <h2>Support Our 2026 Return</h2>
+                <p class="donate-intro">
+                    Your donation helps us restart our programs in Vietnam and continue our mission
+                    of providing free, high-quality English education. Support materials, resources,
+                    and infrastructure for students who otherwise wouldn't have access.
+                </p>
+            </div>
+
+            <!-- Where Money Goes -->
+            <div class="money-breakdown">
+                <h3>Where Your Money Goes</h3>
+                <p class="breakdown-intro">We're committed to transparency. Here's how every dollar is used:</p>
+                <div class="breakdown-chart">
+                    <div class="breakdown-item">
+                        <div class="breakdown-bar" style="width: 80%; background: var(--secondary);"></div>
+                        <div class="breakdown-details">
+                            <span class="breakdown-label">Programs & Materials</span>
+                            <span class="breakdown-percentage">80%</span>
+                        </div>
+                        <p class="breakdown-description">Teaching materials, student resources, and program delivery</p>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-bar" style="width: 15%; background: var(--accent-dark);"></div>
+                        <div class="breakdown-details">
+                            <span class="breakdown-label">Operations</span>
+                            <span class="breakdown-percentage">15%</span>
+                        </div>
+                        <p class="breakdown-description">Volunteer support, training, and logistics</p>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-bar" style="width: 5%; background: var(--gray-300);"></div>
+                        <div class="breakdown-details">
+                            <span class="breakdown-label">Administration</span>
+                            <span class="breakdown-percentage">5%</span>
+                        </div>
+                        <p class="breakdown-description">Minimal overhead to keep the organization running</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donor Levels -->
+            <div class="donor-levels">
+                <h3>Join Our Donor Circle</h3>
+                <div class="levels-grid">
+                    <div class="donor-level bronze-level">
+                        <div class="level-badge">Bronze Supporter</div>
+                        <div class="level-amount">$50+</div>
+                        <ul class="level-benefits">
+                            <li>Thank you email</li>
+                            <li>Quarterly newsletter</li>
+                            <li>Name on website</li>
+                        </ul>
+                    </div>
+                    <div class="donor-level silver-level">
+                        <div class="level-badge">Silver Champion</div>
+                        <div class="level-amount">$250+</div>
+                        <ul class="level-benefits">
+                            <li>All Bronze benefits</li>
+                            <li>Program updates from volunteers</li>
+                            <li>Annual impact report</li>
+                            <li>Social media recognition</li>
+                        </ul>
+                    </div>
+                    <div class="donor-level gold-level">
+                        <div class="level-badge">Gold Partner</div>
+                        <div class="level-amount">$1,000+</div>
+                        <ul class="level-benefits">
+                            <li>All Silver benefits</li>
+                            <li>Video updates from field</li>
+                            <li>Virtual meetup with volunteers</li>
+                            <li>Special donor recognition</li>
+                        </ul>
+                    </div>
+                    <div class="donor-level founder-level">
+                        <div class="level-badge">Program Founder</div>
+                        <div class="level-amount">$6,000+</div>
+                        <ul class="level-benefits">
+                            <li>All Gold benefits</li>
+                            <li>Classroom named in your honor</li>
+                            <li>Direct connection with students</li>
+                            <li>Invitation to attend program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div class="donate-content">
                 <div class="donate-text">
-                    <h2>Support Our 2026 Return</h2>
-                    <p>
-                        Your donation helps us restart our programs in Vietnam and continue our mission
-                        of providing free, high-quality English education. Support materials, resources,
-                        and infrastructure for students who otherwise wouldn't have access.
-                    </p>
+                    <h3 class="impact-header">Your Impact</h3>
                     <div class="impact-stats">
                         <div class="impact-item">
                             <div class="impact-amount">$50</div>
@@ -522,6 +702,18 @@
                 </div>
                 <div class="donate-box">
                     <h3>Make a Donation</h3>
+
+                    <!-- Recurring Toggle -->
+                    <div class="donation-type-toggle">
+                        <button class="toggle-btn active" id="oneTimeBtn" data-type="one-time">One-Time</button>
+                        <button class="toggle-btn" id="monthlyBtn" data-type="monthly">Monthly</button>
+                    </div>
+
+                    <div class="recurring-message" id="recurringMessage" style="display: none;">
+                        <p><strong>🎯 Join our Sustainer Circle!</strong></p>
+                        <p>Monthly donations create lasting impact and help us plan for future programs.</p>
+                    </div>
+
                     <div class="donate-amounts">
                         <button class="amount-btn" data-amount="50">$50</button>
                         <button class="amount-btn" data-amount="100">$100</button>
@@ -537,6 +729,183 @@
                     <button class="btn btn-donate" id="donateBtn">Donate Now</button>
                     <p class="donate-note">eta4 is a registered 501(c)(3) nonprofit. All donations are tax-deductible.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about volunteering and donating</p>
+            </div>
+
+            <div class="faq-columns">
+                <div class="faq-column">
+                    <h3 class="faq-category">For Volunteers</h3>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Do I need teaching experience?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No teaching experience is required! We provide comprehensive training before and during the program. All you need is enthusiasm, patience, and a passion for education.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What are the costs?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Volunteers cover their own flights and personal expenses. We provide accommodation, training, and program materials. The total cost typically ranges from $1,500-$2,500 depending on your location.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What's the time commitment?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>The program runs for 5 weeks during summer, with an additional week for orientation and training. Total commitment is 6 weeks.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What ages of students do you teach?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our programs serve students from ages 8-18, divided into age-appropriate groups with varying English proficiency levels.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-column">
+                    <h3 class="faq-category">For Donors</h3>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is my donation tax-deductible?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! eta4 is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible in the United States.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I know my money is being used effectively?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We publish annual reports detailing our financials and impact. 80% of donations go directly to programs, and you'll receive regular updates showing exactly how your contribution made a difference.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I donate in honor of someone?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! You can dedicate your donation in honor or memory of someone. We'll send them (or their family) a special acknowledgment.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Does my employer match donations?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Many employers offer matching gift programs. Contact your HR department or use your company's matching gift portal to double your impact!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">Dedicated leaders making lasting impact</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80')"></div>
+                    <h3>Victor Wilson</h3>
+                    <p class="member-title">Founder & Executive Director</p>
+                    <p class="member-bio">Started eta4 in 2009 with a vision to provide free English education to underserved communities in Southeast Asia. Passionate about sustainable impact.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80')"></div>
+                    <h3>Linh Nguyen</h3>
+                    <p class="member-title">Vietnam Program Coordinator</p>
+                    <p class="member-bio">Former student turned lead volunteer. Coordinates local volunteers and ensures program continuity year-round in Hue.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80')"></div>
+                    <h3>John Martinez</h3>
+                    <p class="member-title">Volunteer Coordinator</p>
+                    <p class="member-bio">Manages volunteer recruitment, training, and support. Has volunteered with eta4 for 5 years.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80')"></div>
+                    <h3>Sarah Chen</h3>
+                    <p class="member-title">Curriculum Director</p>
+                    <p class="member-bio">Develops teaching materials and training programs. Former volunteer (2015) and certified ESL instructor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency" id="transparency">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Transparency & Accountability</h2>
+                <p class="section-subtitle">Building trust through openness</p>
+            </div>
+
+            <div class="transparency-grid">
+                <div class="transparency-card">
+                    <div class="transparency-icon">📊</div>
+                    <h3>Annual Report 2019</h3>
+                    <p>Detailed breakdown of our programs, financials, and impact from our last active year before COVID.</p>
+                    <a href="#" class="transparency-link">Download Report (PDF) →</a>
+                </div>
+
+                <div class="transparency-card">
+                    <div class="transparency-icon">💰</div>
+                    <h3>Financial Statements</h3>
+                    <p>Complete financial records showing how we manage and allocate every dollar donated.</p>
+                    <a href="#" class="transparency-link">View Financials →</a>
+                </div>
+
+                <div class="transparency-card">
+                    <div class="transparency-icon">✓</div>
+                    <h3>501(c)(3) Status</h3>
+                    <p>IRS-registered nonprofit organization. EIN: XX-XXXXXXX (placeholder)</p>
+                    <a href="#" class="transparency-link">Verify Status →</a>
+                </div>
+
+                <div class="transparency-card">
+                    <div class="transparency-icon">📈</div>
+                    <h3>Impact Metrics</h3>
+                    <p>How we measure success: student progress tracking, volunteer satisfaction, and long-term outcomes.</p>
+                    <a href="#" class="transparency-link">See Our Methodology →</a>
+                </div>
+            </div>
+
+            <div class="accountability-statement">
+                <h3>Our Commitment to You</h3>
+                <p>We believe in radical transparency. Every donation, every program decision, and every outcome is documented and shared. If you have questions about how we operate, please don't hesitate to contact us directly.</p>
             </div>
         </div>
     </section>

@@ -68,10 +68,91 @@ body {
     padding: 0 var(--spacing-md);
 }
 
+/* Urgency Banner */
+.urgency-banner {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.75rem var(--spacing-md);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.urgency-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.urgency-icon {
+    font-size: 1.25rem;
+}
+
+.urgency-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.urgency-cta {
+    background: var(--white);
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.urgency-cta:hover {
+    transform: translateX(3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.urgency-close {
+    position: absolute;
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    opacity: 0.8;
+    transition: var(--transition-fast);
+}
+
+.urgency-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.urgency-banner.hidden {
+    display: none;
+}
+
 /* Navigation */
 .nav {
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
     right: 0;
     background: var(--white);
@@ -1072,6 +1153,281 @@ section {
     color: var(--white);
 }
 
+/* Volunteer Urgency & Countdown */
+.volunteer-urgency {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    padding: var(--spacing-2xl);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+}
+
+.volunteer-urgency h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--accent);
+}
+
+.urgency-subheading {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.countdown-container {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.countdown-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.countdown {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    border-radius: 1rem;
+    min-width: 100px;
+    border: 2px solid var(--accent);
+}
+
+.countdown-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.countdown-unit {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+}
+
+/* Progress Bar */
+.volunteer-spots-progress {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.progress-label {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.progress-percentage {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 1s ease;
+    border-radius: 2rem;
+}
+
+.progress-note {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+}
+
+/* Video Section */
+.video-section {
+    margin-bottom: var(--spacing-3xl);
+    text-align: center;
+}
+
+.video-section h3 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--white);
+}
+
+.video-grid {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.video-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-md);
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-caption {
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.video-cta {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.video-cta a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.video-cta a:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
+
+/* Volunteer Journey Timeline */
+.volunteer-journey {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.volunteer-journey h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    color: var(--white);
+}
+
+.journey-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.journey-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-xl);
+    border-radius: 1rem;
+    border-left: 4px solid var(--secondary);
+    transition: var(--transition-base);
+}
+
+.journey-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.journey-badge {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.journey-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--white);
+}
+
+.journey-item p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+/* Testimonial Quote */
+.testimonial-quote {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.quote-mark {
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+}
+
+.quote-author {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: right;
+}
+
+.section-subtitle-h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
+}
+
 .volunteer-content {
     display: grid;
     gap: var(--spacing-2xl);
@@ -1175,6 +1531,251 @@ section {
 /* Donate Section */
 .donate {
     background: var(--gray-50);
+}
+
+.donate-header-section {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.donate-intro {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Where Money Goes */
+.money-breakdown {
+    background: var(--white);
+    padding: var(--spacing-2xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.money-breakdown h3 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.breakdown-intro {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+}
+
+.breakdown-chart {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.breakdown-item {
+    position: relative;
+}
+
+.breakdown-bar {
+    height: 60px;
+    border-radius: 0.5rem;
+    margin-bottom: var(--spacing-sm);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.breakdown-bar:hover {
+    transform: scaleX(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+.breakdown-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+}
+
+.breakdown-label {
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.breakdown-percentage {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.breakdown-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Donor Levels */
+.donor-levels {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.donor-levels h3 {
+    font-size: 2rem;
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.donor-level {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    border-top: 4px solid var(--gray-300);
+}
+
+.donor-level:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.bronze-level {
+    border-top-color: #CD7F32;
+}
+
+.silver-level {
+    border-top-color: #C0C0C0;
+}
+
+.gold-level {
+    border-top-color: #FFD700;
+}
+
+.founder-level {
+    border-top-color: var(--primary);
+    background: var(--gray-50);
+}
+
+.level-badge {
+    display: inline-block;
+    background: var(--dark);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.bronze-level .level-badge {
+    background: #CD7F32;
+}
+
+.silver-level .level-badge {
+    background: #C0C0C0;
+    color: var(--dark);
+}
+
+.gold-level .level-badge {
+    background: #FFD700;
+    color: var(--dark);
+}
+
+.founder-level .level-badge {
+    background: var(--primary);
+}
+
+.level-amount {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.level-benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.level-benefits li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    position: relative;
+    color: var(--text);
+}
+
+.level-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+/* Donation Type Toggle */
+.donation-type-toggle {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+    background: var(--gray-100);
+    padding: 0.25rem;
+    border-radius: 2rem;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background: transparent;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    color: var(--text);
+}
+
+.toggle-btn.active {
+    background: var(--success);
+    color: var(--white);
+}
+
+.toggle-btn:hover:not(.active) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.recurring-message {
+    background: var(--gray-50);
+    padding: var(--spacing-md);
+    border-radius: 0.5rem;
+    margin-bottom: var(--spacing-lg);
+    border-left: 4px solid var(--success);
+}
+
+.recurring-message p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.recurring-message p:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.impact-header {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .donate-content {
@@ -1521,6 +2122,209 @@ section {
     .pillar p {
         font-size: 1.1rem;
     }
+}
+
+/* FAQ Section */
+.faq {
+    background: var(--white);
+}
+
+.faq-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-2xl);
+}
+
+.faq-category {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid var(--primary);
+}
+
+.faq-item {
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: var(--spacing-md) 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.faq-question:hover {
+    color: var(--primary);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: var(--transition-base);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p {
+    padding: 0 0 var(--spacing-md) 0;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* Team Section */
+.team {
+    background: var(--gray-50);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.team-member {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-lg);
+    background-size: cover;
+    background-position: center;
+    border: 4px solid var(--gray-200);
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.member-title {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.member-bio {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Transparency Section */
+.transparency {
+    background: var(--white);
+}
+
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.transparency-card {
+    background: var(--gray-50);
+    padding: var(--spacing-xl);
+    border-radius: 1rem;
+    border-top: 4px solid var(--secondary);
+    transition: var(--transition-base);
+}
+
+.transparency-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.transparency-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.transparency-card h3 {
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.transparency-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.transparency-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.transparency-link:hover {
+    color: var(--primary-dark);
+    gap: 0.5rem;
+}
+
+.accountability-statement {
+    background: var(--dark);
+    color: var(--white);
+    padding: var(--spacing-2xl);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.accountability-statement h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent);
+}
+
+.accountability-statement p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Animations */

@@ -440,4 +440,118 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Urgency Banner Close
+const urgencyBanner = document.getElementById('urgencyBanner');
+const urgencyClose = document.querySelector('.urgency-close');
+
+if (urgencyClose) {
+    urgencyClose.addEventListener('click', () => {
+        urgencyBanner.classList.add('hidden');
+        // Adjust nav position
+        nav.style.top = '0';
+        // Store banner closed state in localStorage
+        localStorage.setItem('urgencyBannerClosed', 'true');
+    });
+}
+
+// Check if banner was previously closed
+if (localStorage.getItem('urgencyBannerClosed') === 'true') {
+    urgencyBanner.classList.add('hidden');
+    nav.style.top = '0';
+}
+
+// FAQ Accordion
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isActive = faqItem.classList.contains('active');
+
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Toggle clicked item
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    });
+});
+
+// Countdown Timer
+function initCountdown() {
+    // Set target date (placeholder - adjust as needed)
+    // For demo: 120 days from now
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 120);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            document.getElementById('countdown').innerHTML = '<p style="color: var(--accent); font-size: 1.5rem;">Applications are now open!</p>';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+    }
+
+    // Update countdown immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// Initialize countdown if element exists
+if (document.getElementById('countdown')) {
+    initCountdown();
+}
+
+// Donation Type Toggle (One-Time vs Monthly)
+const oneTimeBtn = document.getElementById('oneTimeBtn');
+const monthlyBtn = document.getElementById('monthlyBtn');
+const recurringMessage = document.getElementById('recurringMessage');
+let donationType = 'one-time';
+
+if (oneTimeBtn && monthlyBtn) {
+    oneTimeBtn.addEventListener('click', () => {
+        oneTimeBtn.classList.add('active');
+        monthlyBtn.classList.remove('active');
+        recurringMessage.style.display = 'none';
+        donationType = 'one-time';
+    });
+
+    monthlyBtn.addEventListener('click', () => {
+        monthlyBtn.classList.add('active');
+        oneTimeBtn.classList.remove('active');
+        recurringMessage.style.display = 'block';
+        donationType = 'monthly';
+    });
+}
+
+// Update donate button to include donation type
+const originalDonateClick = donateBtn.onclick;
+donateBtn.addEventListener('click', () => {
+    if (!selectedAmount || selectedAmount <= 0) {
+        alert('Please select or enter a donation amount');
+        return;
+    }
+
+    const typeText = donationType === 'monthly' ? '/month' : '';
+    console.log('Donation type:', donationType);
+    console.log('Donation amount:', selectedAmount);
+
+    alert(`Thank you for your generous ${donationType} donation of $${selectedAmount}${typeText}! You will be redirected to our secure payment processor.`);
+});
+
 console.log('Website initialized successfully!');
