@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="eta4 - English Through Academics, Athletics and Arts Abroad. Teaching English in Vietnam through free 5-week summer camps since 2009.">
+    <title>eta4 | English Through Academics, Athletics and Arts Abroad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">eta4</span>
+                <span class="logo-tagline">changing lives through education</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#programs" class="nav-link">Programs</a></li>
+                <li><a href="#history" class="nav-link">Our History</a></li>
+                <li><a href="#stories" class="nav-link">Stories</a></li>
+                <li><a href="#volunteer" class="nav-link nav-link-cta">Volunteer</a></li>
+                <li><a href="#donate" class="nav-link nav-link-donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1600&q=80" alt="Students learning in Vietnam" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-title-main">Empowering futures</span>
+                <span class="hero-title-sub">through the power of English</span>
+            </h1>
+            <p class="hero-description">
+                Since 2009, we've been transforming lives in Vietnam through free 5-week summer camps
+                that combine English education with academics, athletics, and arts.
+            </p>
+            <div class="hero-cta">
+                <a href="#volunteer" class="btn btn-primary">Join Us for Summer 2026</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number" data-count="14250">14,250</div>
+                    <div class="stat-label">Students Taught</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="700">700+</div>
+                    <div class="stat-label">Volunteers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="10">10</div>
+                    <div class="stat-label">Years Active</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="5">5</div>
+                    <div class="stat-label">Week Programs</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="section-subtitle">Breaking down language barriers, building up futures</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>English Through Academics, Athletics and Arts Abroad</h3>
+                    <p>
+                        Since 2009, eta4 has been dedicated to providing free, high-quality English education
+                        to students in Vietnam. Our unique approach combines traditional academics with
+                        athletics and arts, creating an immersive and engaging learning environment.
+                    </p>
+                    <p>
+                        From 2009 to 2019, our volunteer-driven 5-week summer camps taught over 14,000 students
+                        in cities like Hue, Da Lat, Bien Hoa, and Duc Linh (Phan Thiet Province) in Vietnam, as well as
+                        Taitung in Taiwan. After a pause due to COVID-19, we're excited to restart our programs
+                        in Summer 2026 in Hue.
+                    </p>
+                </div>
+            </div>
+
+            <div class="sustainability-callout">
+                <div class="callout-icon">
+                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=400&q=80" alt="Teaching sustainability">
+                </div>
+                <div class="callout-content">
+                    <h3>Building Lasting Impact Through Local Empowerment</h3>
+                    <p>
+                        We know that 5 weeks is just a blip in time. The real, lasting impact happens on the ground
+                        every single day — long after our international volunteers return home. That's why we focus
+                        heavily on recruiting, training, and empowering local volunteers in each community.
+                    </p>
+                    <p>
+                        Our "teach to fish" mentality means we invest deeply in training local teachers and volunteers,
+                        providing them with the skills, materials, and confidence to continue English education year-round.
+                        We don't just teach students — we build sustainable programs that live on through the dedication
+                        of passionate local educators who understand their communities best.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pillars-section">
+                <div class="pillar">
+                    <div class="pillar-content">
+                        <div class="pillar-number">01</div>
+                        <h4>Academics</h4>
+                        <p>Rigorous English curriculum tailored to each student's level, building strong foundations in reading, writing, speaking, and listening.</p>
+                    </div>
+                    <div class="pillar-image" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80')"></div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-content">
+                        <div class="pillar-number">02</div>
+                        <h4>Athletics</h4>
+                        <p>Physical activities that build teamwork and confidence, creating bonds between students while developing leadership skills.</p>
+                    </div>
+                    <div class="pillar-image" style="background-image: url('https://images.unsplash.com/photo-1551958219-acbc608c6377?w=600&q=80')"></div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-content">
+                        <div class="pillar-number">03</div>
+                        <h4>Arts</h4>
+                        <p>Creative expression through music, drama, and visual arts, helping students discover their voice and build self-confidence.</p>
+                    </div>
+                    <div class="pillar-image" style="background-image: url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&q=80')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Programs</h2>
+                <p class="section-subtitle">5 weeks that change everything</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?w=600&q=80')"></div>
+                    <div class="program-content">
+                        <div class="program-number">Week 1-2</div>
+                        <h3>Foundation Building</h3>
+                        <p>Students are assessed and grouped by skill level. We focus on building confidence and establishing core vocabulary through interactive games and activities.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80')"></div>
+                    <div class="program-content">
+                        <div class="program-number">Week 3-4</div>
+                        <h3>Skill Development</h3>
+                        <p>Intensive learning through our three pillars. Students engage in academic lessons, sports activities, and creative arts projects, all conducted in English.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image" style="background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=600&q=80')"></div>
+                    <div class="program-content">
+                        <div class="program-number">Week 5</div>
+                        <h3>Celebration & Showcase</h3>
+                        <p>Students demonstrate their progress through performances, presentations, and competitions. Families and communities celebrate their achievements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program History Section -->
+    <section class="history" id="history">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our History</h2>
+                <p class="section-subtitle">15 years of impact across Vietnam and Taiwan</p>
+                <p class="timeline-scroll-hint">Scroll horizontally to explore our journey →</p>
+            </div>
+
+            <div class="history-timeline-wrapper">
+                <div class="history-timeline">
+                    <div class="timeline-item" data-annual="350" data-cumulative="350">
+                        <div class="timeline-bar" style="height: 14%;"></div>
+                        <div class="timeline-content">
+                            <h4>Our Beginning</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">350 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 350</div>
+                        </div>
+                        <div class="timeline-year">2009</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="1100" data-cumulative="1450">
+                        <div class="timeline-bar" style="height: 44%;"></div>
+                        <div class="timeline-content">
+                            <h4>Expansion</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                                <li>Bien Hoa, Vietnam</li>
+                                <li>Taitung, Taiwan</li>
+                            </ul>
+                            <div class="timeline-annual-count">1,100 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 1,450</div>
+                        </div>
+                        <div class="timeline-year">2010</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="1300" data-cumulative="2750">
+                        <div class="timeline-bar" style="height: 52%;"></div>
+                        <div class="timeline-content">
+                            <h4>Growing Impact</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                                <li>Da Lat, Vietnam</li>
+                                <li>Taitung, Taiwan</li>
+                            </ul>
+                            <div class="timeline-annual-count">1,300 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 2,750</div>
+                        </div>
+                        <div class="timeline-year">2011</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="1100" data-cumulative="3850">
+                        <div class="timeline-bar" style="height: 44%;"></div>
+                        <div class="timeline-content">
+                            <h4>Focused Growth</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">1,100 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 3,850</div>
+                        </div>
+                        <div class="timeline-year">2012</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="2000" data-cumulative="5850">
+                        <div class="timeline-bar" style="height: 80%;"></div>
+                        <div class="timeline-content">
+                            <h4>Record Year</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                                <li>Duc Linh (Phan Thiet Province), Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">2,000 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 5,850</div>
+                        </div>
+                        <div class="timeline-year">2013</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="2300" data-cumulative="8150">
+                        <div class="timeline-bar" style="height: 92%;"></div>
+                        <div class="timeline-content">
+                            <h4>Continued Growth</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                                <li>Duc Linh (Phan Thiet Province), Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">2,300 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 8,150</div>
+                        </div>
+                        <div class="timeline-year">2014</div>
+                    </div>
+
+                    <div class="timeline-item timeline-item-highlight" data-annual="2500" data-cumulative="10650">
+                        <div class="timeline-bar" style="height: 100%;"></div>
+                        <div class="timeline-content">
+                            <h4>Peak Impact</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                                <li>Duc Linh (Phan Thiet Province), Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">2,500 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 10,650</div>
+                        </div>
+                        <div class="timeline-year">2015</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="1000" data-cumulative="13650">
+                        <div class="timeline-bar" style="height: 40%;"></div>
+                        <div class="timeline-content">
+                            <h4>Sustained Excellence</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">1,000 students annually</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 13,650</div>
+                        </div>
+                        <div class="timeline-year">2016-2018</div>
+                    </div>
+
+                    <div class="timeline-item" data-annual="600" data-cumulative="14250">
+                        <div class="timeline-bar" style="height: 24%;"></div>
+                        <div class="timeline-content">
+                            <h4>Final Pre-COVID Program</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">600 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 14,250</div>
+                        </div>
+                        <div class="timeline-year">2019</div>
+                    </div>
+
+                    <div class="timeline-item timeline-item-pause" data-annual="0" data-cumulative="14250">
+                        <div class="timeline-bar timeline-bar-pause" style="height: 5%;"></div>
+                        <div class="timeline-content">
+                            <h4>COVID Pause</h4>
+                            <p class="timeline-location-text">Programs suspended</p>
+                            <div class="timeline-annual-count">0 students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> 14,250</div>
+                        </div>
+                        <div class="timeline-year">2020-2025</div>
+                    </div>
+
+                    <div class="timeline-item timeline-item-future" data-annual="?" data-cumulative="?">
+                        <div class="timeline-bar timeline-bar-future" style="height: 30%;"></div>
+                        <div class="timeline-content">
+                            <h4>We're Coming Back!</h4>
+                            <ul class="timeline-location">
+                                <li>Hue, Vietnam</li>
+                            </ul>
+                            <div class="timeline-annual-count">? students</div>
+                            <div class="timeline-cumulative"><span class="cumulative-label">Students All Time:</span> ?</div>
+                        </div>
+                        <div class="timeline-year">2026</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-map-section">
+                <h3>Where We've Worked</h3>
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section class="stories" id="stories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Stories of Impact</h2>
+                <p class="section-subtitle">Real people, real change</p>
+            </div>
+            <div class="stories-grid">
+                <article class="story-card story-hero">
+                    <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1200&q=80')"></div>
+                    <div class="story-content">
+                        <span class="story-category">Local Volunteer</span>
+                        <h3>From Student to Lead Teacher</h3>
+                        <p>Linh attended our camp as a student in 2013. After receiving training from eta4, she now leads the year-round English program in her community, teaching 100+ students annually. Her story embodies our commitment to sustainable, locally-driven impact.</p>
+                        <a href="#" class="story-link">Read her full story →</a>
+                    </div>
+                </article>
+
+                <article class="story-card story-large">
+                    <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80')"></div>
+                    <div class="story-content">
+                        <span class="story-category">Student Success</span>
+                        <h3>From Student to University Scholar</h3>
+                        <p>Mai attended our program in Hue in 2015 as a shy 14-year-old. Today, she's studying international relations at university and volunteers as a translator in her community.</p>
+                        <a href="#" class="story-link">Read more →</a>
+                    </div>
+                </article>
+
+                <article class="story-card story-small">
+                    <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=80')"></div>
+                    <div class="story-content">
+                        <span class="story-category">Volunteer Impact</span>
+                        <h3>A Life-Changing Experience</h3>
+                        <p>Sarah found her calling in education through volunteering.</p>
+                        <a href="#" class="story-link">Read more →</a>
+                    </div>
+                </article>
+
+                <article class="story-card story-medium">
+                    <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&q=80')"></div>
+                    <div class="story-content">
+                        <span class="story-category">Arts Program</span>
+                        <h3>Finding Voice Through Music</h3>
+                        <p>Pham discovered his passion for music in our arts program. He now teaches guitar to other students while continuing to improve his English.</p>
+                        <a href="#" class="story-link">Read more →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section class="volunteer" id="volunteer">
+        <div class="container">
+            <div class="volunteer-content">
+                <div class="volunteer-text">
+                    <h2>Volunteer for Summer 2026</h2>
+                    <p class="volunteer-intro">
+                        After a pause due to COVID-19, we're excited to restart our programs in Hue, Vietnam
+                        for Summer 2026. Whether you're an international volunteer or a local teacher, join us
+                        in making a lasting difference. We welcome both international and Vietnamese volunteers
+                        who share our passion for education. No teaching experience required – just enthusiasm and dedication.
+                    </p>
+                    <div class="volunteer-benefits">
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=100&q=80" alt="Support">
+                            </div>
+                            <div>
+                                <h4>Full Support & Training</h4>
+                                <p>Comprehensive training, accommodation, and ongoing support for all volunteers</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=100&q=80" alt="Impact">
+                            </div>
+                            <div>
+                                <h4>Build Lasting Impact</h4>
+                                <p>Work alongside local volunteers to create sustainable programs that continue year-round</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=100&q=80" alt="Collaboration">
+                            </div>
+                            <div>
+                                <h4>Local & International Team</h4>
+                                <p>Collaborate with a diverse team of Vietnamese and international educators</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=100&q=80" alt="Culture">
+                            </div>
+                            <div>
+                                <h4>Cultural Exchange</h4>
+                                <p>Experience authentic Vietnamese culture and build meaningful cross-cultural connections</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="volunteer-form-container">
+                    <form class="volunteer-form" id="volunteerForm">
+                        <h3>Express Your Interest for 2026</h3>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country">
+                        </div>
+                        <div class="form-group">
+                            <label for="summer">Preferred Summer</label>
+                            <select id="summer" name="summer">
+                                <option value="">Select a year</option>
+                                <option value="2026" selected>Summer 2026</option>
+                                <option value="2027">Summer 2027</option>
+                                <option value="2028">Summer 2028</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Why do you want to volunteer?</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section class="donate" id="donate">
+        <div class="container">
+            <div class="donate-content">
+                <div class="donate-text">
+                    <h2>Support Our 2026 Return</h2>
+                    <p>
+                        Your donation helps us restart our programs in Vietnam and continue our mission
+                        of providing free, high-quality English education. Support materials, resources,
+                        and infrastructure for students who otherwise wouldn't have access.
+                    </p>
+                    <div class="impact-stats">
+                        <div class="impact-item">
+                            <div class="impact-amount">$50</div>
+                            <div class="impact-description">Provides materials for one student for the full 5-week program</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-amount">$250</div>
+                            <div class="impact-description">Supports a full classroom of 20 students for one week</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-amount">$1000</div>
+                            <div class="impact-description">Funds an entire 5-week camp program</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="donate-box">
+                    <h3>Make a Donation</h3>
+                    <div class="donate-amounts">
+                        <button class="amount-btn" data-amount="50">$50</button>
+                        <button class="amount-btn" data-amount="100">$100</button>
+                        <button class="amount-btn" data-amount="250">$250</button>
+                        <button class="amount-btn" data-amount="500">$500</button>
+                        <button class="amount-btn" data-amount="1000">$1000</button>
+                        <button class="amount-btn" data-amount="custom">Custom</button>
+                    </div>
+                    <div class="custom-amount" id="customAmount" style="display: none;">
+                        <label for="customAmountInput">Enter amount</label>
+                        <input type="number" id="customAmountInput" placeholder="$" min="1">
+                    </div>
+                    <button class="btn btn-donate" id="donateBtn">Donate Now</button>
+                    <p class="donate-note">eta4 is a registered 501(c)(3) nonprofit. All donations are tax-deductible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>eta4</h3>
+                    <p>English Through Academics, Athletics and Arts Abroad</p>
+                    <p class="footer-tagline">Changing lives through education since 2009</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#history">Our History</a></li>
+                        <li><a href="#stories">Success Stories</a></li>
+                        <li><a href="#volunteer">Volunteer</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@eta4.org</p>
+                    <p>Website: eta4.org</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Updated</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 eta4.org. All rights reserved. | 501(c)(3) Nonprofit Organization</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
