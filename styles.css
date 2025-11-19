@@ -295,17 +295,18 @@ html {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: var(--spacing-2xl) var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-sm);
     margin-top: 70px;
 }
 
 @media (min-width: 768px) {
     .hero {
+        min-height: 100vh;
         padding: var(--spacing-3xl) var(--spacing-md);
     }
 }
