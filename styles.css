@@ -295,12 +295,12 @@ html {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 50vh;
+    min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: var(--spacing-3xl) var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
     margin-top: 70px;
 }
 
