@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESC}}">
+    <link rel="canonical" href="https://eta4.org{{PATH}}">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/icon-512.svg">
+    <meta name="theme-color" content="#F5F1E8">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="eta4">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESC}}">
+    <meta property="og:url" content="https://eta4.org{{PATH}}">
+    <meta property="og:image" content="https://eta4.org{{OG_IMAGE}}">
+    <meta name="twitter:card" content="summary_large_image">
+    {{HREFLANG}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css">
+    {{HEAD_EXTRA}}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"NGO","name":"eta4","legalName":"Eta4","alternateName":"English Through Academics, Athletics and Arts Abroad","url":"https://eta4.org/","logo":"https://eta4.org/assets/icon-512.svg","foundingDate":"2009","taxID":"26-3633243","nonprofitStatus":"Nonprofit501c3","email":"info@eta4.org","address":{"@type":"PostalAddress","addressLocality":"Oceanside","addressRegion":"CA","addressCountry":"US"},"areaServed":"Vietnam","sameAs":["https://www.youtube.com/@EnglishThroughA4","https://projects.propublica.org/nonprofits/organizations/263633243"]}
+    </script>
+</head>
+<body>
+    <a class="skip" href="#main">{{T_SKIP}}</a>
+
+    <div class="strip">
+        <div class="container">
+            <span class="long">{{T_STRIP_LONG}}</span>
+            <span class="short">{{T_STRIP_SHORT}}</span>
+            <a href="{{P_VOLUNTEER}}#notify">{{T_STRIP_CTA}}</a>
+        </div>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+            <a class="brand" href="{{P_HOME}}" aria-label="eta4 home">
+                <img src="/assets/logo.svg" alt="eta4" width="250" height="72">
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="{{P_PROGRAMS}}" data-nav="programs">{{T_NAV_PROGRAMS}}</a>
+                <a href="{{P_VOLUNTEER}}" data-nav="volunteer">{{T_NAV_VOLUNTEER}}</a>
+                <a href="/impact" data-nav="impact">{{T_NAV_IMPACT}}</a>
+                <a href="/journal" data-nav="journal">{{T_NAV_JOURNAL}}</a>
+                <a href="/about" data-nav="about">{{T_NAV_ABOUT}}</a>
+            </nav>
+            <div class="header-actions">
+                <a class="lang" href="{{ALT_LANG_PATH}}" lang="{{ALT_LANG}}" hreflang="{{ALT_LANG}}" aria-label="{{ALT_LANG_LABEL}}"><span class="lang-long">{{ALT_LANG_LABEL}}</span><span class="lang-short">{{ALT_LANG_SHORT}}</span></a>
+                <a class="btn btn-primary" href="/donate">{{T_DONATE}}</a>
+                <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="{{P_PROGRAMS}}">{{T_NAV_PROGRAMS}}</a>
+            <a href="{{P_VOLUNTEER}}">{{T_NAV_VOLUNTEER}}</a>
+            <a href="/impact">{{T_NAV_IMPACT}}</a>
+            <a href="/journal">{{T_NAV_JOURNAL}}</a>
+            <a href="/about">{{T_NAV_ABOUT}}</a>
+            <a class="btn btn-primary" href="/donate">{{T_DONATE}}</a>
+            <a class="lang" href="{{ALT_LANG_PATH}}" lang="{{ALT_LANG}}">{{ALT_LANG_LABEL}}</a>
+        </div>
+    </header>
+
+    <main id="main">
+{{CONTENT}}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a class="brand" href="{{P_HOME}}" aria-label="eta4 home"><img src="/assets/logo-reverse.svg" alt="eta4" width="250" height="72"></a>
+                    <p class="mission">{{T_FOOT_MISSION}}</p>
+                    <p style="font-size:.85rem;margin:0">Oceanside, California, USA<br><a href="mailto:info@eta4.org">info@eta4.org</a></p>
+                </div>
+                <div>
+                    <h4>{{T_FOOT_INVOLVED}}</h4>
+                    <ul>
+                        <li><a href="{{P_VOLUNTEER}}">{{T_NAV_VOLUNTEER}}</a></li>
+                        <li><a href="/donate">{{T_DONATE}}</a></li>
+                        <li><a href="{{P_PROGRAMS}}">{{T_NAV_PROGRAMS}}</a></li>
+                        <li><a href="/impact#alumni">{{T_FOOT_ALUMNI}}</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>{{T_FOOT_LEARN}}</h4>
+                    <ul>
+                        <li><a href="/impact">{{T_NAV_IMPACT}}</a></li>
+                        <li><a href="/journal">{{T_NAV_JOURNAL}}</a></li>
+                        <li><a href="/about">{{T_NAV_ABOUT}}</a></li>
+                        <li><a href="https://www.youtube.com/@EnglishThroughA4" target="_blank" rel="noopener">YouTube</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>{{T_FOOT_NEWS}}</h4>
+                    <form class="newsletter" id="newsletterForm" novalidate>
+                        <input type="email" name="email" placeholder="{{T_EMAIL_PH}}" aria-label="{{T_EMAIL_PH}}" required>
+                        <button type="submit">{{T_SUBSCRIBE}}</button>
+                    </form>
+                    <p class="status" id="newsletterStatus" role="status" aria-live="polite"></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; <span id="year">2026</span> eta4. English Through Academics, Athletics and Arts Abroad.</span>
+                <span>501(c)(3) nonprofit, EIN 26-3633243</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/app.js" defer></script>
+    {{BODY_EXTRA}}
+</body>
+</html>

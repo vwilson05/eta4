@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>eta4 logo concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F1E8;font:14px/1.4 'Be Vietnam Pro',sans-serif;color:#2C2A28;padding:24px}
+h1{font-family:'Bricolage Grotesque';font-size:22px;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.c{background:#fff;border:1px solid #e4dfd3;padding:16px}
+.c h2{font:600 12px/1 'Be Vietnam Pro';letter-spacing:.08em;text-transform:uppercase;color:#8A2B3A;margin:0 0 10px}
+.row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.big svg{height:72px}.mid svg{height:32px}.sm svg{height:16px}
+.dark{background:#2C2A28;padding:10px;margin-top:8px}
+.note{font-size:12px;color:#6b665e;margin-top:6px}
+</style></head><body>
+<h1>eta4 logo concepts. Four A's: Academics, Athletics, Arts, Abroad. Hue palette: lacquer #8A2B3A, river #1D4E5F, summer #E9B44C.</h1>
+<div class="grid" id="g"></div>
+<script>
+const R='#8A2B3A',T='#1D4E5F',Y='#E9B44C',K='#2C2A28',W='#fff';
+const word=(fill,x=0)=>`<text x="${x}" y="46" font-family="Bricolage Grotesque" font-weight="800" font-size="52" letter-spacing="-2" fill="${fill}">eta<tspan fill="${fill===W?Y:R}">4</tspan></text>`;
+const concepts={
+ 'A. Wordmark, tinted 4':(m)=>`<svg viewBox="0 0 150 60" xmlns="http://www.w3.org/2000/svg">${word(m?W:T)}</svg>`,
+ 'B. Four rising strokes':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><g fill="${m?W:R}"><rect x="4" y="38" width="10" height="18" rx="2"/><rect x="18" y="28" width="10" height="28" rx="2"/><rect x="32" y="16" width="10" height="40" rx="2"/><rect x="46" y="4" width="10" height="52" rx="2"/></g>${word(m?W:T,68)}</svg>`,
+ 'C. Pinwheel of four':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><g transform="translate(6,4)"><path d="M26 26 L26 0 A26 26 0 0 1 52 26 Z" fill="${m?W:R}"/><path d="M26 26 L52 26 A26 26 0 0 1 26 52 Z" fill="${m?W:T}" opacity="${m?.8:1}"/><path d="M26 26 L26 52 A26 26 0 0 1 0 26 Z" fill="${m?W:Y}" opacity="${m?.6:1}"/><path d="M26 26 L0 26 A26 26 0 0 1 26 0 Z" fill="${m?W:K}" opacity="${m?.4:1}"/></g>${word(m?W:T,70)}</svg>`,
+ 'D. Speech-bubble 4':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><path d="M8 6 h44 a6 6 0 0 1 6 6 v28 a6 6 0 0 1 -6 6 h-22 l-12 10 v-10 h-10 a6 6 0 0 1 -6 -6 v-28 a6 6 0 0 1 6 -6z" fill="${m?W:R}"/><text x="30" y="40" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="34" fill="${m?K:W}">4</text>${word(m?W:T,70)}</svg>`,
+ 'E. e4 monogram tile':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="52" height="52" rx="12" fill="${m?W:R}"/><text x="30" y="43" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="34" letter-spacing="-2" fill="${m?K:W}">e4</text>${word(m?W:T,70)}</svg>`,
+ 'F. Four-stroke 4 glyph':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="${m?W:R}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M38 8 L12 38 H52"/><path d="M40 20 V54"/></g>${word(m?W:T,70)}</svg>`,
+ 'G. Sun and river':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="24" r="16" fill="${m?W:Y}"/><g stroke="${m?W:T}" stroke-width="5" stroke-linecap="round" fill="none"><path d="M6 42 q12 -6 24 0 t24 0"/><path d="M6 52 q12 -6 24 0 t24 0"/></g>${word(m?W:T,70)}</svg>`,
+ 'H. Open book of four':(m)=>`<svg viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg"><g fill="${m?W:R}"><path d="M6 12 q12 -4 24 4 v38 q-12 -8 -24 -4z"/><path d="M56 12 q-12 -4 -24 4 v38 q12 -8 24 -4z" opacity="${m?.7:1}" fill="${m?W:T}"/></g>${word(m?W:T,70)}</svg>`,
+};
+const g=document.getElementById('g');
+for(const [name,fn] of Object.entries(concepts)){
+  const d=document.createElement('div');d.className='c';
+  d.innerHTML=`<h2>${name}</h2><div class="row big">${fn(false)}</div><div class="row mid">${fn(false)}</div><div class="row sm">${fn(false)}</div><div class="dark row mid">${fn(true)}</div>`;
+  g.appendChild(d);
+}
+</script></body></html>
