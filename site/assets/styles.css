@@ -432,27 +432,31 @@ body.menu-open { overflow: hidden; }
 
 /* ===== Kite Field ===== */
 .kitefield { position: relative; background: #143A47; }
-.kf-sticky { position: sticky; top: 0; height: 100svh; min-height: 520px; overflow: hidden; }
+.kf-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 520px; overflow: hidden; }
 .kf-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.kf-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,58,71,0) 30%, rgba(20,58,71,.55) 70%, rgba(20,58,71,.9) 100%); pointer-events: none; }
-.kf-ui { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--s-6); }
+.kf-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,58,71,0) 36%, rgba(20,58,71,.72) 60%, rgba(20,58,71,.97) 100%); pointer-events: none; }
+@media (min-width: 900px) { .kf-scrim { background: linear-gradient(180deg, rgba(20,58,71,0) 30%, rgba(20,58,71,.5) 65%, rgba(20,58,71,.92) 100%); } }
+.kf-ui { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--s-5); overflow: hidden; }
 @media (min-width: 900px) { .kf-ui { padding-bottom: var(--s-8); } }
 .kf-copy { max-width: 620px; }
-.kf-year { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 12vw, 8rem); line-height: .95; letter-spacing: -0.04em; color: var(--summer); margin: var(--s-2) 0 var(--s-3); transition: opacity .3s; }
-.kf-title { font-size: clamp(1.6rem, 4.2vw, 2.75rem); color: var(--white); max-width: 18ch; }
-.kf-line { color: rgba(255,255,255,.85); margin: var(--s-3) 0 var(--s-4); max-width: 46ch; font-size: clamp(1rem, 1.5vw, 1.15rem); }
+.kf-year { font-family: var(--display); font-weight: 800; font-size: clamp(2.75rem, 11vw, 8rem); line-height: .95; letter-spacing: -0.04em; color: var(--summer); margin: var(--s-1) 0 var(--s-2); }
+.kf-title { font-size: clamp(1.4rem, 4.2vw, 2.75rem); color: var(--white); max-width: 18ch; }
+.kf-line { color: rgba(255,255,255,.88); margin: var(--s-2) 0 var(--s-3); max-width: 46ch; font-size: clamp(.95rem, 1.5vw, 1.15rem); line-height: 1.45; }
 .kf-count { font-family: var(--display); color: rgba(255,255,255,.75); margin: 0 0 var(--s-2); font-size: .95rem; }
 .kf-count b { font-size: 1.35rem; color: var(--white); font-weight: 800; }
 .kf-live { font-family: var(--display); color: var(--summer); margin: 0 0 var(--s-3); font-size: .95rem; }
 .kf-live b { font-size: 1.2rem; }
-.kf-cta { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-4); }
+.kf-cta { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); margin-top: var(--s-3); }
+.kf-cta .btn-lg { grid-column: 1 / -1; }
+.kf-cta .btn { padding: 12px 16px; font-size: .95rem; }
+@media (min-width: 600px) { .kf-cta { display: flex; flex-wrap: wrap; gap: var(--s-3); } .kf-cta .btn-lg { padding: 18px 32px; font-size: 1.1rem; } }
 .kf-cta[hidden], .kf-live[hidden] { display: none; }
 .on-dark .btn-summer, .on-dark .btn-summer:hover { color: var(--ink); }
 .kf-cta .btn-lg { width: 100%; }
 @media (min-width: 600px) { .kf-cta .btn-lg { width: auto; } }
 .kf-skip { position: absolute; top: var(--s-3); right: var(--s-5); font-family: var(--display); font-weight: 700; font-size: .85rem; color: rgba(255,255,255,.7); text-decoration: none; border: 1px solid rgba(255,255,255,.3); padding: 6px 12px; border-radius: 999px; }
 .kf-skip:hover { color: var(--white); border-color: var(--white); }
-.kf-hint { position: absolute; right: var(--s-5); bottom: var(--s-5); font-family: var(--display); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0; padding-left: 18px; }
+.kf-hint { position: absolute; right: var(--s-5); bottom: var(--s-3); font-family: var(--display); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0; padding-left: 18px; }
 .kf-hint::before { content: ""; position: absolute; left: 0; top: 50%; width: 10px; height: 10px; border-right: 2px solid var(--summer); border-bottom: 2px solid var(--summer); transform: translateY(-70%) rotate(45deg); animation: kfHint 1.6s ease-in-out infinite; }
 @keyframes kfHint { 0%, 100% { transform: translateY(-90%) rotate(45deg); opacity: .5; } 50% { transform: translateY(-40%) rotate(45deg); opacity: 1; } }
 .kitefield[data-chapter="13"] .kf-hint { display: none; }

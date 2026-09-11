@@ -98,7 +98,8 @@ const PAGES: Record<string, Page> = {
   "/vi/volunteer": { file: "vi-volunteer.html", lang: "vi", title: "Tình nguyện viên địa phương | eta4 Huế 2027", desc: "Sinh viên và giáo viên tại Huế: cùng eta4 dạy tiếng Anh mùa hè 2027. Bạn nhận được gì và cách đăng ký.", og: "/assets/img/volunteers-group.jpg", alt: "/volunteer" },
 };
 
-const layout = readFileSync(join(SITE, "layout.html"), "utf8");
+const ASSET_VERSION = Date.now().toString(36);
+const layout = readFileSync(join(SITE, "layout.html"), "utf8").replace(/\/assets\/(styles\.css|app\.js)/g, (m) => `${m}?v=${ASSET_VERSION}`);
 const pageCache = new Map<string, string>();
 
 function renderPage(path: string, page: Page, status = 200): Response {
@@ -113,7 +114,7 @@ function renderPage(path: string, page: Page, status = 200): Response {
       ? `<link rel="alternate" hreflang="${lang}" href="${SITE_URL}${path}"><link rel="alternate" hreflang="${lang === "en" ? "vi" : "en"}" href="${SITE_URL}${page.alt}">`
       : "";
     const headExtra = page.leaflet ? `<link rel="stylesheet" href="/assets/vendor/leaflet.css">` : "";
-    const bodyExtra = (page.leaflet ? `<script src="/assets/vendor/leaflet.js"></script>` : "") + (page.story ? `<script src="/assets/story.js" defer></script>` : "");
+    const bodyExtra = (page.leaflet ? `<script src="/assets/vendor/leaflet.js"></script>` : "") + (page.story ? `<script src="/assets/story.js?v=${ASSET_VERSION}" defer></script>` : "");
     const vars: Record<string, string> = {
       ...s,
       LANG: lang, TITLE: page.title, DESC: page.desc, PATH: path === "/" ? "/" : path,
@@ -282,7 +283,8 @@ Bun.serve({
     if (path.startsWith("/assets/") && !path.includes("..")) {
       const file = Bun.file(join(SITE, path));
       if (await file.exists()) {
-        return new Response(file, { headers: { "Content-Type": MIME[extname(path)] || "application/octet-stream", "Cache-Control": "public, max-age=604800", ...SECURITY_HEADERS } });
+        const versioned = url.searchParams.has("v"); const code = path.endsWith(".css") || path.endsWith(".js");
+        return new Response(file, { headers: { "Content-Type": MIME[extname(path)] || "application/octet-stream", "Cache-Control": versioned ? "public, max-age=31536000, immutable" : (code ? "public, max-age=300, must-revalidate" : "public, max-age=86400"), ...SECURITY_HEADERS } });
       }
     }
     return renderPage("/404", { file: "404.html", title: "Page not found | eta4", desc: "That page is not here." }, 404);
