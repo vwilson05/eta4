@@ -22,17 +22,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Urgency Banner -->
+    <header class="site-header" id="siteHeader">
+    <!-- Announcement strip -->
     <div class="urgency-banner" id="urgencyBanner">
         <div class="urgency-content">
-            <span class="urgency-text">Summer 2027 volunteer applications open November 2, 2026. 50 spots in Hue.</span>
+            <span class="urgency-text"><span class="u-long">Summer 2027 volunteer applications open November 2, 2026. 50 spots in Hue.</span><span class="u-short">2027 applications open Nov 2</span></span>
             <a href="#volunteer" class="urgency-cta">Get notified</a>
         </div>
-        <button class="urgency-close" aria-label="Close banner">&times;</button>
+        <button class="urgency-close" aria-label="Close announcement">&times;</button>
     </div>
 
     <!-- Navigation -->
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Main">
         <div class="nav-container">
             <a href="#home" class="nav-logo">
                 <span class="logo-text">eta4</span>
@@ -54,6 +55,7 @@
             </ul>
         </div>
     </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -71,7 +73,7 @@
             </p>
             <div class="hero-cta">
                 <a href="#volunteer" class="btn btn-primary">Volunteer in Summer 2027</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+                <a href="#about" class="btn btn-secondary hero-secondary">Learn more</a>
             </div>
             <div class="hero-stats">
                 <div class="stat">

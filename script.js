@@ -9,6 +9,8 @@ const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 const nav = document.getElementById('nav');
+const siteHeader = document.getElementById('siteHeader');
+const headerHeight = () => (siteHeader ? siteHeader.offsetHeight : 0);
 
 function closeMenu() {
     navToggle.classList.remove('active');
@@ -50,9 +52,9 @@ let ticking = false;
 
 function onScroll() {
     const y = window.pageYOffset;
-    nav.classList.toggle('scrolled', y > 100);
+    siteHeader.classList.toggle('scrolled', y > 100);
 
-    const navHeight = nav.offsetHeight;
+    const navHeight = headerHeight();
     let current = '';
     for (const section of sectionsWithId) {
         if (y >= section.offsetTop - navHeight - 100) current = section.id;
@@ -289,7 +291,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.pageYOffset - nav.offsetHeight;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight();
         window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
         history.replaceState(null, '', href);
     });
@@ -332,7 +334,6 @@ const urgencyClose = document.querySelector('.urgency-close');
 
 function hideBanner() {
     urgencyBanner.classList.add('hidden');
-    nav.style.top = '0';
 }
 
 if (urgencyClose) {
