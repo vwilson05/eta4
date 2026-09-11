@@ -38,6 +38,12 @@ db.exec(`
     created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
     email TEXT NOT NULL UNIQUE, ip TEXT
   );
+  CREATE TABLE IF NOT EXISTS alumni (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+    name TEXT NOT NULL, email TEXT, year TEXT NOT NULL, city TEXT NOT NULL, role TEXT NOT NULL,
+    line TEXT NOT NULL, consent INTEGER NOT NULL DEFAULT 0, approved INTEGER NOT NULL DEFAULT 0, ip TEXT
+  );
   CREATE TABLE IF NOT EXISTS checkout_attempts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
@@ -190,12 +196,27 @@ Bun.serve({
 
     // ---- API ----
     if (path.startsWith("/api/")) {
+      if (path === "/api/alumni" && req.method === "GET") {
+        const rows = db.query("SELECT id, name, year, city, role, line FROM alumni WHERE approved = 1 AND consent = 1 ORDER BY year ASC, id ASC LIMIT 500").all();
+        return new Response(JSON.stringify({ alumni: rows }), { headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=60", ...SECURITY_HEADERS } });
+      }
+      if (path === "/api/admin/alumni") {
+        if (!ADMIN_TOKEN || url.searchParams.get("token") !== ADMIN_TOKEN) return json({ error: "Unauthorized" }, 401);
+        if (req.method === "POST") {
+          const b = (await req.json().catch(() => ({}))) as { id?: number; approved?: boolean };
+          if (!b.id) return json({ error: "id required" }, 400);
+          db.query("UPDATE alumni SET approved = ? WHERE id = ?").run(b.approved === false ? 0 : 1, b.id);
+          return json({ ok: true });
+        }
+        return json({ alumni: db.query("SELECT * FROM alumni ORDER BY id DESC").all() });
+      }
       if (path === "/api/health") return json({ ok: true, stripe: Boolean(STRIPE_SECRET_KEY), data_dir: DATA_DIR, pages: Object.keys(PAGES).length });
       if (path === "/api/admin/export") {
         if (!ADMIN_TOKEN || url.searchParams.get("token") !== ADMIN_TOKEN) return json({ error: "Unauthorized" }, 401);
         return json({
           volunteer_interest: db.query("SELECT * FROM volunteer_interest ORDER BY id DESC").all(),
           newsletter: db.query("SELECT * FROM newsletter ORDER BY id DESC").all(),
+          alumni: db.query("SELECT * FROM alumni ORDER BY id DESC").all(),
           checkout_attempts: db.query("SELECT * FROM checkout_attempts ORDER BY id DESC").all(),
         });
       }
@@ -211,6 +232,17 @@ Bun.serve({
         db.query("INSERT INTO volunteer_interest (name, email, country, summer, message, ip, user_agent) VALUES (?, ?, ?, ?, ?, ?, ?)")
           .run(name, email, clean(body.country, 100), clean(body.summer, 10), clean(body.message, 2000), ip, req.headers.get("user-agent") || "");
         console.log(`volunteer interest: ${name} <${email}> summer=${clean(body.summer, 10)}`);
+        return json({ ok: true });
+      }
+      if (path === "/api/alumni") {
+        const name = clean(body.name, 120), year = clean(body.year, 12), city = clean(body.city, 80), role = clean(body.role, 20), line = clean(body.line, 280), email = clean(body.email, 200).toLowerCase();
+        const consent = body.consent === true || body.consent === "yes" ? 1 : 0;
+        if (!name || !year || !city || !line) return json({ error: "Name, year, city and your one line are required" }, 400);
+        if (!/^(20(09|1[0-9]))$/.test(year)) return json({ error: "Year must be between 2009 and 2019" }, 400);
+        if (!["student", "volunteer", "local volunteer", "teacher"].includes(role)) return json({ error: "Pick student, volunteer, local volunteer or teacher" }, 400);
+        if (email && !EMAIL_RE.test(email)) return json({ error: "That email does not look right" }, 400);
+        db.query("INSERT INTO alumni (name, email, year, city, role, line, consent, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)").run(name, email || null, year, city, role, line, consent, ip);
+        console.log(`alumni: ${name} ${year} ${city} (${role}) consent=${consent}`);
         return json({ ok: true });
       }
       if (path === "/api/newsletter") {

@@ -288,6 +288,7 @@ body.menu-open { overflow: hidden; }
 .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--s-4); }
 .field label { font-family: var(--display); font-weight: 700; font-size: .85rem; }
 .field input, .field select, .field textarea {
+  width: 100%; min-width: 0;
   font: inherit; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); min-height: 48px;
 }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--river); outline: none; box-shadow: 0 0 0 3px var(--river-soft); }
@@ -416,3 +417,15 @@ body.menu-open { overflow: hidden; }
   .hero-media img { transform: none; }
 }
 @media print { .site-header, .strip, .footer .newsletter, .mobile-menu { display: none !important; } }
+
+/* Alumni wall */
+.wall { display: grid; grid-template-columns: minmax(0,1fr); gap: var(--s-3); margin-top: var(--s-6); }
+@media (min-width: 600px) { .wall { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.wall-empty { color: rgba(255,255,255,.7); font-style: italic; margin: 0; }
+.wall-card { display: flex; gap: var(--s-3); align-items: flex-start; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: var(--s-4); }
+.wall-card svg { width: 28px; height: 40px; flex-shrink: 0; margin-top: 2px; }
+.wall-card b { display: block; font-family: var(--display); color: var(--white); }
+.wall-card span { display: block; font-size: .8rem; color: var(--summer); margin: 2px 0 6px; }
+.wall-card p { margin: 0; font-size: .95rem; color: rgba(255,255,255,.85); }
+.check { display: flex; gap: var(--s-3); align-items: flex-start; font-size: .95rem; margin: 0 0 var(--s-4); color: var(--ink-2); cursor: pointer; }
+.check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--lacquer); flex-shrink: 0; }

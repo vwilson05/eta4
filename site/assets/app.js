@@ -150,6 +150,33 @@
     });
   }
 
+  const af = $('#alumniForm');
+  if (af) {
+    const wall = $('#wall'), empty = $('#wallEmpty');
+    const esc = (v) => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const kite = '<svg viewBox="0 0 44 64" aria-hidden="true"><path d="M22 2 L44 30 L22 34 Z" fill="#8A2B3A"/><path d="M44 30 L22 64 L22 34 Z" fill="#1D4E5F"/><path d="M22 64 L0 30 L22 34 Z" fill="#E9B44C"/><path d="M0 30 L22 2 L22 34 Z" fill="#F5F1E8"/></svg>';
+    fetch('/api/alumni').then(r => r.json()).then(d => {
+      const rows = (d && d.alumni) || [];
+      if (!rows.length) return;
+      empty.remove();
+      wall.innerHTML = rows.map(r => `<div class="wall-card">${kite}<div><b>${esc(r.name)}</b><span>${esc(r.city)} ${esc(r.year)}, ${esc(r.role)}</span><p>${esc(r.line)}</p></div></div>`).join('');
+    }).catch(() => {});
+    af.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const st = $('#alumniStatus'), btn = $('button[type="submit"]', af);
+      const payload = { name: af.name.value.trim(), year: af.year.value, role: af.role.value, city: af.city.value, line: af.line.value.trim(), email: af.email.value.trim(), consent: af.consent.checked };
+      if (!payload.name) return setStatus(st, 'Please add your name.', 'err');
+      if (!payload.year) return setStatus(st, 'Which year were you with us?', 'err');
+      if (!payload.line) return setStatus(st, 'One line about where you are now, please.', 'err');
+      btn.disabled = true; setStatus(st, 'Sending...');
+      try {
+        await postJSON('/api/alumni', payload); af.reset();
+        setStatus(st, payload.consent ? 'Thank you. Your kite goes up on the wall as soon as we have read it, usually within a day.' : 'Thank you. We have your story and will keep it private as you asked.', 'ok');
+      } catch (err) { setStatus(st, err.message, 'err'); }
+      finally { btn.disabled = false; }
+    });
+  }
+
   const nf = $('#newsletterForm');
   if (nf) {
     nf.addEventListener('submit', async (e) => {

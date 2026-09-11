@@ -60,15 +60,31 @@
             </div>
         </section>
 
-        <section class="section" style="padding-top:0" aria-labelledby="alumni-title" id="alumni">
+        <section class="section band on-dark" aria-labelledby="alumni-title" id="alumni">
             <div class="container">
-                <div class="cta-band reveal">
-                    <div>
+                <div class="split" style="align-items:start">
+                    <div class="reveal">
                         <p class="eyebrow">Alumni wall</p>
-                        <h2 id="alumni-title">Were you there? This wall is waiting for you.</h2>
-                        <p>Students and volunteers from 2009 to 2019: send your name, your year and city, and one line about where you are now. With your permission we will publish it here, and it will be the first thing a 2027 volunteer reads.</p>
+                        <h2 id="alumni-title">Were you there? Add your kite to the wall.</h2>
+                        <p>Students and volunteers from 2009 to 2019: your name, your year and city, and one line about where you are now. We read every entry before it goes up, and only publish what you allow.</p>
+                        <div class="wall" id="wall" aria-live="polite">
+                            <p class="wall-empty" id="wallEmpty">The wall is empty until the first alumni signs it. Be the first.</p>
+                        </div>
                     </div>
-                    <a class="btn btn-summer btn-lg" href="mailto:info@eta4.org?subject=eta4%20alumni%20wall&body=Name%3A%0AYear%20and%20city%3A%0AStudent%20or%20volunteer%3A%0AWhere%20I%20am%20now%3A%0AOK%20to%20publish%3A%20yes%2Fno">Add your name</a>
+                    <form class="form reveal" id="alumniForm" novalidate style="color:var(--ink)">
+                        <h3 style="color:var(--ink)">Sign the wall</h3>
+                        <div class="field"><label for="alName">Your name</label><input id="alName" name="name" type="text" autocomplete="name" required></div>
+                        <div class="field" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px">
+                            <div class="field" style="margin:0"><label for="alYear">Year</label><select id="alYear" name="year"><option value="">Choose</option><option>2009</option><option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option><option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2019</option></select></div>
+                            <div class="field" style="margin:0"><label for="alRole">You were a</label><select id="alRole" name="role"><option value="student">Student</option><option value="volunteer">International volunteer</option><option value="local volunteer">Local volunteer</option><option value="teacher">Teacher</option></select></div>
+                        </div>
+                        <div class="field"><label for="alCity">City</label><select id="alCity" name="city"><option>Hue</option><option>Bien Hoa</option><option>Da Lat</option><option>Duc Linh</option><option>Taitung</option></select></div>
+                        <div class="field"><label for="alLine">Where are you now, in one line</label><input id="alLine" name="line" type="text" maxlength="280" placeholder="Teaching English in Da Nang, two kids, still sing the warm-up song"></div>
+                        <div class="field"><label for="alEmail">Email (optional, never published)</label><input id="alEmail" name="email" type="email" autocomplete="email"></div>
+                        <label class="check"><input type="checkbox" name="consent" id="alConsent"> <span>Yes, publish my name, year, city and line on eta4.org</span></label>
+                        <button class="btn btn-primary" type="submit" style="width:100%">Add my kite</button>
+                        <p class="status" id="alumniStatus" role="status" aria-live="polite"></p>
+                    </form>
                 </div>
             </div>
         </section>
