@@ -124,7 +124,7 @@
       raf = 0;
       const rect = kf.getBoundingClientRect(); const vh = window.innerHeight;
       const total = rect.height - vh; const p = reduceMotion ? 1 : clamp(-rect.top / Math.max(1, total), 0, 1);
-      const cf = p * (CHAPTERS - 1); const ch = Math.min(CHAPTERS - 1, Math.floor(cf)); const t = cf - ch;
+      const cf = p * CHAPTERS; const ch = Math.min(CHAPTERS - 1, Math.floor(cf)); const t = clamp(cf - ch, 0, 1);
       setCopy(ch); if (ui.bar) ui.bar.style.transform = `scaleX(${p})`;
       const time = now / 1000; const swayX = Math.sin(time * 0.5) * 3, swayY = Math.cos(time * 0.37) * 2;
       sky(time);
