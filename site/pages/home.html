@@ -1,28 +1,29 @@
-        <section class="hero on-dark" aria-labelledby="hero-title">
-            <div class="hero-media" aria-hidden="true">
-                <img src="/assets/img/hue-courtyard.jpg" alt="" width="1280" height="720" fetchpriority="high">
-            </div>
-            <div class="container hero-inner">
-                <div class="stagger">
-                    <p class="eyebrow">Hue, Vietnam. Since 2009.</p>
-                    <h1 id="hero-title">English opens doors. <em>We hold them open.</em></h1>
-                    <p class="lede">Free five-week summer camps where kids in Vietnam learn English by doing: academics in the morning, sport and art in the afternoon, a showcase for the whole family at the end. We are coming back to Hue in July 2027.</p>
-                    <div class="hero-cta">
-                        <a class="btn btn-primary btn-lg" href="/volunteer">Volunteer in Summer 2027</a>
-                        <a class="btn btn-ghost" href="/donate">Give to the return</a>
+        <section class="kitefield on-dark" id="kitefield" aria-label="Every student since 2009, as a kite" data-chapter="0">
+            <div class="kf-sticky">
+                <canvas class="kf-canvas" aria-hidden="true"></canvas>
+                <div class="kf-scrim" aria-hidden="true"></div>
+                <div class="container kf-ui">
+                    <div class="kf-copy">
+                        <p class="eyebrow" id="kfEyebrow">Hue, Vietnam</p>
+                        <div class="kf-year num" id="kfYear">2009 to 2027</div>
+                        <h1 class="kf-title" id="kfTitle">English opens doors. We hold them open.</h1>
+                        <p class="kf-line" id="kfLine">Every kite in this sky is one student who learned English at an eta4 summer camp. Scroll to fly through the years.</p>
+                        <p class="kf-count"><b class="num" id="kfCount">14,250</b> <span id="kfCountLabel">kites. One per student.</span></p>
+                        <p class="kf-live" id="kfLive" hidden></p>
+                        <div class="kf-cta" id="kfCta" hidden>
+                            <a class="btn btn-summer btn-lg" href="/volunteer">Volunteer in 2027</a>
+                            <a class="btn btn-ghost" href="/vi/programs" lang="vi">Đăng ký cho học sinh</a>
+                            <a class="btn btn-ghost" href="/donate">Give</a>
+                        </div>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat"><b class="num" data-count="14250">14,250</b><span>students taught</span></div>
-                        <div class="stat"><b class="num" data-count="700" data-suffix="+">700+</b><span>volunteers</span></div>
-                        <div class="stat"><b class="num" data-count="10">10</b><span>summers, 2009 to 2019</span></div>
-                        <div class="stat"><b class="num" data-count="5">5</b><span>cities in Vietnam and Taiwan</span></div>
-                    </div>
+                    <a class="kf-skip" href="#doors">Skip the story</a>
+                    <p class="kf-hint" aria-hidden="true">Scroll</p>
                 </div>
-                <span class="hero-caption">Afternoon games, Hue. From the eta4 archive.</span>
+                <div class="kf-progress" aria-hidden="true"><i id="kfBar"></i></div>
             </div>
         </section>
 
-        <section class="section" aria-label="Choose your path">
+        <section class="section" aria-label="Choose your path" id="doors">
             <div class="container">
                 <div class="doors">
                     <a class="door door-volunteer reveal" href="/volunteer">

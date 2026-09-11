@@ -82,19 +82,19 @@ const STRINGS: Record<string, Record<string, string>> = {
 };
 
 // ---------- Routes ----------
-type Page = { file: string; title: string; desc: string; lang?: "en" | "vi"; og?: string; alt?: string; leaflet?: boolean };
+type Page = { file: string; title: string; desc: string; lang?: "en" | "vi"; og?: string; alt?: string; leaflet?: boolean; story?: boolean };
 const PAGES: Record<string, Page> = {
-  "/": { file: "home.html", title: "eta4 | Free English summer camps in Hue, Vietnam", desc: "Since 2009, eta4 volunteers have taught 14,250 students in Vietnam through free five-week summer camps. We return to Hue in July 2027. Volunteer or give.", og: "/assets/img/hue-courtyard.jpg", alt: "/vi" },
+  "/": { file: "home.html", title: "eta4 | Free English summer camps in Hue, Vietnam", desc: "Since 2009, eta4 volunteers have taught 14,250 students in Vietnam through free five-week summer camps. We return to Hue in July 2027. Volunteer or give.", og: "/assets/img/hue-courtyard.jpg", alt: "/vi", story: true },
   "/volunteer": { file: "volunteer.html", title: "Volunteer in Hue, Summer 2027 | eta4", desc: "Teach English for five weeks in Hue, Vietnam. Dates, costs, what is covered, and how to apply for the Summer 2027 camp.", og: "/assets/img/volunteers-group.jpg", alt: "/vi/volunteer" },
-  "/programs": { file: "programs.html", title: "The camp: academics, athletics, arts | eta4", desc: "How a five-week eta4 English camp works: who it is for, what a day looks like, and how families in Hue enroll for Summer 2027.", og: "/assets/img/hue-games.jpg", alt: "/vi/programs" },
+  "/programs": { file: "programs.html", title: "The camp: academics, athletics, arts | eta4", desc: "How a five-week eta4 English camp works: who it is for, what a day looks like, and how families in Hue enroll for Summer 2027.", og: "/assets/img/hue-games.jpg", alt: "/vi/programs", story: true },
   "/donate": { file: "donate.html", title: "Give to eta4 | 501(c)(3), EIN 26-3633243", desc: "Fund free English education in Hue. One-time or monthly, secure checkout by Stripe, tax-deductible in the United States.", og: "/assets/img/students-smile.jpg" },
   "/impact": { file: "impact.html", title: "Impact since 2009 | eta4", desc: "14,250 students, 700 volunteers, five cities, ten summers. Year-by-year numbers, the map, and the alumni wall.", og: "/assets/img/hue-courtyard.jpg", leaflet: true },
   "/journal": { file: "journal.html", title: "Journal | eta4", desc: "Letters and updates from eta4, including why we paused and why we are coming back to Hue in 2027.", og: "/assets/img/announcement-2019.jpg" },
   "/journal/why-we-paused": { file: "journal-why-we-paused.html", title: "Why we paused, and why we are coming back | eta4", desc: "A letter from eta4's founder on the pause since 2019, what we learned, and the return to Hue in Summer 2027.", og: "/assets/img/announcement-2019.jpg" },
   "/about": { file: "about.html", title: "About eta4 | Team, transparency, 501(c)(3)", desc: "Who runs eta4, our legal status (EIN 26-3633243), public filings, and how to reach us.", og: "/assets/img/volunteers-group.jpg" },
   "/thank-you": { file: "thank-you.html", title: "Thank you | eta4", desc: "Your gift to eta4 is on its way to a classroom in Hue." },
-  "/vi": { file: "vi-home.html", lang: "vi", title: "eta4 | Trại hè tiếng Anh miễn phí tại Huế", desc: "Từ 2009, tình nguyện viên eta4 đã dạy 14.250 học sinh Việt Nam qua các trại hè tiếng Anh miễn phí 5 tuần. Chúng tôi trở lại Huế tháng 7 năm 2027.", og: "/assets/img/hue-courtyard.jpg", alt: "/" },
-  "/vi/programs": { file: "vi-programs.html", lang: "vi", title: "Trại hè tiếng Anh eta4 tại Huế, hè 2027 | Dành cho phụ huynh và học sinh", desc: "Trại hè tiếng Anh miễn phí 5 tuần tại Huế cho học sinh 8 đến 18 tuổi: thời gian, địa điểm, một ngày ở trại, và cách đăng ký.", og: "/assets/img/hue-games.jpg", alt: "/programs" },
+  "/vi": { file: "vi-home.html", lang: "vi", title: "eta4 | Trại hè tiếng Anh miễn phí tại Huế", desc: "Từ 2009, tình nguyện viên eta4 đã dạy 14.250 học sinh Việt Nam qua các trại hè tiếng Anh miễn phí 5 tuần. Chúng tôi trở lại Huế tháng 7 năm 2027.", og: "/assets/img/hue-courtyard.jpg", alt: "/", story: true },
+  "/vi/programs": { file: "vi-programs.html", lang: "vi", title: "Trại hè tiếng Anh eta4 tại Huế, hè 2027 | Dành cho phụ huynh và học sinh", desc: "Trại hè tiếng Anh miễn phí 5 tuần tại Huế cho học sinh 8 đến 18 tuổi: thời gian, địa điểm, một ngày ở trại, và cách đăng ký.", og: "/assets/img/hue-games.jpg", alt: "/programs", story: true },
   "/vi/volunteer": { file: "vi-volunteer.html", lang: "vi", title: "Tình nguyện viên địa phương | eta4 Huế 2027", desc: "Sinh viên và giáo viên tại Huế: cùng eta4 dạy tiếng Anh mùa hè 2027. Bạn nhận được gì và cách đăng ký.", og: "/assets/img/volunteers-group.jpg", alt: "/volunteer" },
 };
 
@@ -113,7 +113,7 @@ function renderPage(path: string, page: Page, status = 200): Response {
       ? `<link rel="alternate" hreflang="${lang}" href="${SITE_URL}${path}"><link rel="alternate" hreflang="${lang === "en" ? "vi" : "en"}" href="${SITE_URL}${page.alt}">`
       : "";
     const headExtra = page.leaflet ? `<link rel="stylesheet" href="/assets/vendor/leaflet.css">` : "";
-    const bodyExtra = page.leaflet ? `<script src="/assets/vendor/leaflet.js"></script><script>if(window.L){document.dispatchEvent(new Event('leaflet-ready'))}</script>` : "";
+    const bodyExtra = (page.leaflet ? `<script src="/assets/vendor/leaflet.js"></script>` : "") + (page.story ? `<script src="/assets/story.js" defer></script>` : "");
     const vars: Record<string, string> = {
       ...s,
       LANG: lang, TITLE: page.title, DESC: page.desc, PATH: path === "/" ? "/" : path,
@@ -196,6 +196,12 @@ Bun.serve({
 
     // ---- API ----
     if (path.startsWith("/api/")) {
+      if (path === "/api/stats" && req.method === "GET") {
+        const vi = (db.query("SELECT COUNT(*) AS n FROM volunteer_interest").get() as { n: number }).n;
+        const nl = (db.query("SELECT COUNT(*) AS n FROM newsletter").get() as { n: number }).n;
+        const alumni = db.query("SELECT name, year, city FROM alumni WHERE approved = 1 AND consent = 1 ORDER BY id DESC LIMIT 60").all();
+        return new Response(JSON.stringify({ volunteer_interest: vi, newsletter: nl, alumni }), { headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=60", ...SECURITY_HEADERS } });
+      }
       if (path === "/api/alumni" && req.method === "GET") {
         const rows = db.query("SELECT id, name, year, city, role, line FROM alumni WHERE approved = 1 AND consent = 1 ORDER BY year ASC, id ASC LIMIT 500").all();
         return new Response(JSON.stringify({ alumni: rows }), { headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=60", ...SECURITY_HEADERS } });
